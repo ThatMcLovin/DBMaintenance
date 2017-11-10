@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 
 /**
  *
@@ -75,7 +75,7 @@ public abstract class BeanGenerico<T> implements Serializable {
  
 
    
-    protected abstract AbstractInterface<T> getFacadeLocal();
+    protected abstract GenericFacadeLocal<T> getFacadeLocal();
 
     public abstract T getEntity();
 

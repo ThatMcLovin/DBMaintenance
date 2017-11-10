@@ -5,26 +5,12 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Seccion;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface SeccionFacadeLocal {
-
-    void create(Seccion seccion);
-
-    void edit(Seccion seccion);
-
-    void remove(Seccion seccion);
-
-    Seccion find(Object id);
-
-    List<Seccion> findAll();
-
-    List<Seccion> findRange(int[] range);
-
-    int count();
-    
-}
+public interface SeccionFacadeLocal extends GenericFacadeLocal<Seccion>{}

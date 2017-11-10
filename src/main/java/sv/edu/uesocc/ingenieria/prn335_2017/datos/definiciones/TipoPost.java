@@ -25,18 +25,17 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(name = "tipo_post", catalog = "posts", schema = "public")
+@Table(name = "tipo_post", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TipoPost.findAll", query = "SELECT t FROM TipoPost t")
     , @NamedQuery(name = "TipoPost.findByIdTipoPost", query = "SELECT t FROM TipoPost t WHERE t.idTipoPost = :idTipoPost")
     , @NamedQuery(name = "TipoPost.findByNombre", query = "SELECT t FROM TipoPost t WHERE t.nombre = :nombre")
     , @NamedQuery(name = "TipoPost.findByActivo", query = "SELECT t FROM TipoPost t WHERE t.activo = :activo")
-    , @NamedQuery(name = "TipoPost.findByDescripcion", query = "SELECT t FROM TipoPost t WHERE t.descripcion = :descripcion")
-    , @NamedQuery(name= "TipoPost.findByNombre", query = "SELECT p.nombre FROM TipoPost p")})
+    , @NamedQuery(name = "TipoPost.findByDescripcion", query = "SELECT t FROM TipoPost t WHERE t.descripcion = :descripcion")})
 public class TipoPost implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,11 +47,12 @@ public class TipoPost implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "nombre", nullable = false, length = 150)
     private String nombre;
+    @Column(name = "activo")
     private Boolean activo;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoPost")
     private List<TipoPostSeccion> tipoPostSeccionList;

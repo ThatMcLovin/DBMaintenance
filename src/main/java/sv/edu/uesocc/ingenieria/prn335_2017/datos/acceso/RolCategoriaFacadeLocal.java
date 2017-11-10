@@ -5,25 +5,12 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.RolCategoria;
 
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface RolCategoriaFacadeLocal {
-
-    void create(RolCategoria rolCategoria);
-
-    void edit(RolCategoria rolCategoria);
-
-    void remove(RolCategoria rolCategoria);
-
-    RolCategoria find(Object id);
-
-    List<RolCategoria> findAll();
-
-    List<RolCategoria> findRange(int[] range);
-
-    int count();
-    
-}
+public interface RolCategoriaFacadeLocal extends GenericFacadeLocal<RolCategoria>{}

@@ -20,10 +20,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(name = "tipo_post_seccion", catalog = "posts", schema = "public")
+@Table(name = "tipo_post_seccion", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TipoPostSeccion.findAll", query = "SELECT t FROM TipoPostSeccion t")
@@ -37,11 +37,13 @@ public class TipoPostSeccion implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected TipoPostSeccionPK tipoPostSeccionPK;
+    @Column(name = "activo")
     private Boolean activo;
+    @Column(name = "obligatorio")
     private Boolean obligatorio;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "peso", nullable = false)
     private int peso;
     @JoinColumn(name = "id_seccion", referencedColumnName = "id_seccion", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)

@@ -6,10 +6,17 @@
 package sv.edu.uesocc.ingenieria.prn335_2017.web.controladores;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.TipoPostFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPost;
 
@@ -30,9 +37,18 @@ public class TipoPostBean extends BeanGenerico<TipoPost> implements Serializable
     @EJB
     TipoPostFacadeLocal tipoPostF;
     TipoPost Tipopost;
+    List salida;
+
+    public List getSalida() {
+        return salida;
+    }
+
+    public void setSalida(List salida) {
+        this.salida = salida;
+    }
     
     @Override
-    protected AbstractInterface<TipoPost> getFacadeLocal() {
+    protected GenericFacadeLocal<TipoPost> getFacadeLocal() {
          return tipoPostF;
     }
 
@@ -41,7 +57,23 @@ public class TipoPostBean extends BeanGenerico<TipoPost> implements Serializable
         return Tipopost;
     }
     
+    public void llenarTipoPost(){
+         
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sv.edu.uesocc.ingenieria.prn335_2017_P2_war_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+        Query c = em.createNamedQuery("Usuario.noUtilizados");
+        salida = c.getResultList();
+        
+        if(salida == null){
+        salida = Collections.EMPTY_LIST;
+        }
+    }
+
     
+    @PostConstruct
+    public void init(){
+     llenarTipoPost();
+    }
     
     
     

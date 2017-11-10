@@ -5,12 +5,12 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Post;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface PostFacadeLocal extends AbstractInterface<Post>{
-
-}
+public interface PostFacadeLocal extends GenericFacadeLocal<Post>{}

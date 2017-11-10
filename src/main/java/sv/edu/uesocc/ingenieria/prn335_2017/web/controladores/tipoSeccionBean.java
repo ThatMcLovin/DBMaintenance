@@ -12,7 +12,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.view.ViewScoped;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.TipoSeccionFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoSeccion;
 
@@ -35,7 +35,7 @@ public class tipoSeccionBean extends BeanGenerico<TipoSeccion> implements Serial
     List<TipoSeccion> filtroCat= new ArrayList<>();
 
     @Override
-    protected AbstractInterface<TipoSeccion> getFacadeLocal() {
+    protected GenericFacadeLocal<TipoSeccion> getFacadeLocal() {
         return tipoSeccionF;
     }
 

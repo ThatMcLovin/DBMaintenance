@@ -6,6 +6,7 @@
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -18,10 +19,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(name = "usuario_rol_categoria", catalog = "posts", schema = "public")
+@Table(name = "usuario_rol_categoria", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "UsuarioRolCategoria.findAll", query = "SELECT u FROM UsuarioRolCategoria u")
@@ -34,6 +35,7 @@ public class UsuarioRolCategoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected UsuarioRolCategoriaPK usuarioRolCategoriaPK;
+    @Column(name = "activo")
     private Boolean activo;
     @JoinColumns({
         @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false, insertable = false, updatable = false)

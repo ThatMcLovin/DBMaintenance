@@ -22,10 +22,10 @@ import javax.persistence.Query;
 import org.primefaces.event.SelectEvent;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.CategoriaFacadeLocal;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 
 /**Declaracion de ManagedBean 
-* @author kevin
+* @author jacque
 * 
  */
 
@@ -57,11 +57,7 @@ public class CategoriaBean extends BeanGenerico<Categoria> implements Serializab
         return catEntity;
     }
     
-    @Override
-    protected AbstractInterface<Categoria> getFacadeLocal() {
-        return categoria;
-      
-    }
+    
     
     @Override
     public void modificar() {
@@ -174,6 +170,11 @@ public class CategoriaBean extends BeanGenerico<Categoria> implements Serializab
 
     public void setLista(List<Categoria> lista) {
         this.lista = lista;
+    }
+
+    @Override
+    protected GenericFacadeLocal<Categoria> getFacadeLocal() {
+        return categoria;
     }
   
 }

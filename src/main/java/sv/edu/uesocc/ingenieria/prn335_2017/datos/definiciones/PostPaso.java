@@ -19,10 +19,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(name = "post_paso", catalog = "posts", schema = "public")
+@Table(name = "post_paso", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "PostPaso.findAll", query = "SELECT p FROM PostPaso p")
@@ -44,9 +44,10 @@ public class PostPaso implements Serializable {
     private Integer idCategoria;
     @Column(name = "id_rol")
     private Integer idRol;
+    @Column(name = "aprobado")
     private Boolean aprobado;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "comentarios", length = 2147483647)
     private String comentarios;
     @JoinColumn(name = "id_paso", referencedColumnName = "id_paso", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)

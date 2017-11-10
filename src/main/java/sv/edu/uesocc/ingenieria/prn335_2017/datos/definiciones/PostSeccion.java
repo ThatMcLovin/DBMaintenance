@@ -21,10 +21,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(name = "post_seccion", catalog = "posts", schema = "public")
+@Table(name = "post_seccion", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "PostSeccion.findAll", query = "SELECT p FROM PostSeccion p")
@@ -39,7 +39,7 @@ public class PostSeccion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
-    @Column(nullable = false, length = 2147483647)
+    @Column(name = "valor", nullable = false, length = 2147483647)
     private String valor;
     @JoinColumn(name = "id_post", referencedColumnName = "id_post", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)

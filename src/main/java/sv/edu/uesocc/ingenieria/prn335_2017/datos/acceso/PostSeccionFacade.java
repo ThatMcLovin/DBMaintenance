@@ -5,17 +5,19 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.PostSeccion;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Stateless
 public class PostSeccionFacade extends AbstractFacade<PostSeccion> implements PostSeccionFacadeLocal {
 
-    @PersistenceContext(unitName = "uesocc.edu.sv.ingenieria.prn335_webproject3_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sv.edu.uesocc.ingenieria.prn335_2017_P2_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
     @Override
@@ -25,11 +27,6 @@ public class PostSeccionFacade extends AbstractFacade<PostSeccion> implements Po
 
     public PostSeccionFacade() {
         super(PostSeccion.class);
-    }
-
-    @Override
-    public List<PostSeccion> findRange(int desde, int hasta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

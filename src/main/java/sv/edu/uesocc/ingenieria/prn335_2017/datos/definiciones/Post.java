@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(catalog = "posts", schema = "public")
+@Table(name = "post", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p")
@@ -53,7 +53,7 @@ public class Post implements Serializable {
     private Integer idPost;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     @Column(name = "aprobacion_comentarios")
@@ -61,10 +61,10 @@ public class Post implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "titulo", nullable = false, length = 150)
     private String titulo;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
     @ManyToMany(mappedBy = "postList")
     private List<Meta> metaList;

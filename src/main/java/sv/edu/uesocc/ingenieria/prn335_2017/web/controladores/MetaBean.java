@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.faces.view.ViewScoped;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.MetaFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Meta;
 
@@ -35,7 +34,7 @@ public class MetaBean extends BeanGenerico<Meta> implements Serializable {
     List<Meta> filtroCat = new ArrayList<>();
 
     @Override
-    protected AbstractInterface<Meta> getFacadeLocal() {
+    protected GenericFacadeLocal<Meta> getFacadeLocal() {
         return metaF;
     }
 

@@ -5,13 +5,12 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoSeccion;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface TipoSeccionFacadeLocal extends AbstractInterface<TipoSeccion>{
-
-    
-}
+public interface TipoSeccionFacadeLocal extends GenericFacadeLocal<TipoSeccion>{}

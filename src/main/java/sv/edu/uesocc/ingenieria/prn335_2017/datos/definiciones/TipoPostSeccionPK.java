@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Embeddable
 public class TipoPostSeccionPK implements Serializable {

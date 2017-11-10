@@ -9,22 +9,9 @@ import java.util.List;
 import javax.ejb.Local;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Cometario;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface CometarioFacadeLocal {
-
-    void create(Cometario cometario);
-
-    void edit(Cometario cometario);
-
-    void remove(Cometario cometario);
-
-    Cometario find(Object id);
-
-    List<Cometario> findAll();
-
-    List<Cometario> findRange(int[] range);
-
-    int count();
-    
-}
+public interface CometarioFacadeLocal extends GenericFacadeLocal<Cometario>{}

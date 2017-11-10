@@ -28,10 +28,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(catalog = "posts", schema = "public")
+@Table(name = "paso", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Paso.findAll", query = "SELECT p FROM Paso p")
@@ -49,10 +49,10 @@ public class Paso implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "nombre", nullable = false, length = 150)
     private String nombre;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "comentarios", length = 2147483647)
     private String comentarios;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paso")
     private List<PostPaso> postPasoList;

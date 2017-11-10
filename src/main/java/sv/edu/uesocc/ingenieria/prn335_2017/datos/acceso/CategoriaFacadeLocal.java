@@ -5,18 +5,12 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
-import java.util.Collections;
-import java.util.List;
 import javax.ejb.Local;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
 
-
+/**
+ *
+ * @author bryan
+ */
 @Local
-public interface CategoriaFacadeLocal extends AbstractInterface<Categoria> {
-
-    
-}
+public interface CategoriaFacadeLocal extends GenericFacadeLocal<Categoria>{}

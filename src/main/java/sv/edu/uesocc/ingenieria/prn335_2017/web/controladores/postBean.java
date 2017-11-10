@@ -11,7 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.GenericFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.PostFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Post;
 
@@ -34,7 +34,7 @@ public class postBean extends BeanGenerico<Post> implements Serializable {
     List<Post> filtroCat = new ArrayList<>();
 
     @Override
-    protected AbstractInterface<Post> getFacadeLocal() {
+    protected GenericFacadeLocal<Post> getFacadeLocal() {
         return postF;
     }
 

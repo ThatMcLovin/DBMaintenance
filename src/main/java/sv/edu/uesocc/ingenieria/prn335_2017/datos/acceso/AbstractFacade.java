@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author kevin
+ * @author bryan
  */
 public abstract class AbstractFacade<T> {
 
@@ -19,40 +19,103 @@ public abstract class AbstractFacade<T> {
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     protected abstract EntityManager getEntityManager();
-
+    
+    /**
+     * 
+     * @param entity 
+     */
     public void create(T entity) {
-        getEntityManager().persist(entity);
+        EntityManager em = getEntityManager();
+        try {
+            if (em != null && entity != null) {
+                em.persist(entity);
+            }else{
+            System.out.println("algo es nulo");
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
+        }
     }
-
+    
+    /**
+     * 
+     * @param entity 
+     */
     public void edit(T entity) {
-        getEntityManager().merge(entity);
+        EntityManager em = getEntityManager();
+        try {
+            if (em != null && entity != null) {
+                em.merge(entity);
+            }else{
+            System.out.println("algo es nulo");
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
+        }
     }
-
+    
+    /**
+     * 
+     * @param entity 
+     */
     public void remove(T entity) {
-        getEntityManager().remove(getEntityManager().merge(entity));
+        EntityManager em = getEntityManager();
+        try {
+            if (em != null && entity != null) {
+                em.remove(getEntityManager().merge(entity));
+            }else{
+            System.out.println("algo es nulo");
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
+        }
     }
 
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
 
+    /**
+     * 
+     * @return 
+     */
     public List<T> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
-    public List<T> findRange(int[] range) {
+    /**
+     *
+     * @param desde
+     * @param hasta
+     * @return
+     */
+    public List<T> findRange(int desde, int hasta) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
-        q.setMaxResults(range[1] - range[0] + 1);
-        q.setFirstResult(range[0]);
+        q.setMaxResults(hasta);
+        q.setFirstResult(desde);
         return q.getResultList();
     }
 
+
+    /**
+     * 
+     * @return 
+     */
     public int count() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);

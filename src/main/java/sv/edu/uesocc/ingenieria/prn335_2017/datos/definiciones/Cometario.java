@@ -26,10 +26,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(catalog = "posts", schema = "public")
+@Table(name = "cometario", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cometario.findAll", query = "SELECT c FROM Cometario c")
@@ -48,7 +48,7 @@ public class Cometario implements Serializable {
     private Integer idComentario;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     @Basic(optional = false)
@@ -56,8 +56,9 @@ public class Cometario implements Serializable {
     @Column(name = "id_usuario", nullable = false)
     private int idUsuario;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "comentario", length = 2147483647)
     private String comentario;
+    @Column(name = "aprobado")
     private Boolean aprobado;
     @JoinColumn(name = "id_post", referencedColumnName = "id_post")
     @ManyToOne

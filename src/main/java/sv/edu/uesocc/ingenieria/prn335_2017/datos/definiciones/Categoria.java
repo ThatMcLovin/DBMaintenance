@@ -25,10 +25,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(catalog = "posts", schema = "public")
+@Table(name = "categoria", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c")
@@ -47,11 +47,12 @@ public class Categoria implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "nombre", nullable = false, length = 150)
     private String nombre;
+    @Column(name = "activo")
     private Boolean activo;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
     private List<RolCategoria> rolCategoriaList;

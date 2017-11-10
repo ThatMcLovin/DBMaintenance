@@ -28,10 +28,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author zentaury
+ * @author bryan
  */
 @Entity
-@Table(catalog = "posts", schema = "public")
+@Table(name = "usuario", catalog = "posts", schema = "MORTAL2017")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
@@ -54,31 +54,32 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "apellidos", nullable = false, length = 150)
     private String apellidos;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
-    @Column(nullable = false, length = 150)
+    @Column(name = "nombres", nullable = false, length = 150)
     private String nombres;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_nacimiento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
+    @Column(name = "activo")
     private Boolean activo;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
+    @Column(name = "comentarios", length = 2147483647)
     private String comentarios;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(nullable = false, length = 50)
+    @Column(name = "password", nullable = false, length = 50)
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<UsuarioRolCategoria> usuarioRolCategoriaList;
