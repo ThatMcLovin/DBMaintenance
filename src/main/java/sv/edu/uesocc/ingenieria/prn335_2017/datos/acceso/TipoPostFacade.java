@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,6 +24,11 @@ public class TipoPostFacade extends AbstractFacade<TipoPost> implements TipoPost
 
     public TipoPostFacade() {
         super(TipoPost.class);
+    }
+
+    @Override
+    public List<TipoPost> findRange(int desde, int hasta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
